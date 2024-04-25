@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>{{ message }}</h1>
+    <p>ユーザ名：{{item.user}}</p>
+    <p>ファイル名：{{item.filename}}</p>
+    <p>{{item.hash_value}}</p>
+
+    <p><a href='/'>一覧に戻る</a> | <a href="/destroy/{{item.id}}">削除</a></p>
+
+
+    <h2>変更検知</h2>
+
+    <p> 変更を確認したいファイルを選択してください。</p>
+    <form action ="/check/{{item.id}}" method="post", enctype="multipart/form-data">
+        <label for="filename">ファイルを選択</label><br>
+        <input type="file" name="filename">
+        <p></p>
+        <button type="submit">確認する</button>
+    </form>
+
+
+{% endblock %}

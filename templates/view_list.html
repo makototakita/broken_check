@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>保存データ</h1>
+　　<table>
+    <tr>
+        <td>id</td>
+        <td>user</td>
+        <td>filename</td>
+        <td>timestamp</td>
+    </tr>
+    {% for item in items %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.user }}</td>
+            <td>{{ item.filename}}</td>
+            <td>{{ item.timestamp}}</td>
+            <td><a href="/show/{{item.id}}">表示</a></td>
+            <!--<td>{{ item.hash_value}}</td> -->
+        </tr>
+    {% endfor %}
+    </table>
+
+    <p><a href="/new">新規ファイル</a></p>
+{% endblock %}
